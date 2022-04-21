@@ -16,11 +16,12 @@ struct GFMButton: View {
         Button(action: action) {
             Label(title, systemImage: "person.2.circle.fill")
         }
-        .background(backgroundColor)
+        .frame(width: 260, height: 60)
+        .background(RoundedRectangle(cornerRadius: 10).fill(backgroundColor))
         .foregroundColor(.white)
-        .buttonStyle(.bordered)
-        .cornerRadius(10)
+//        .buttonStyle(.bordered)
         .font(.headline)
+        .frame(minWidth: 200)
     }
 }
 

@@ -13,11 +13,13 @@ struct GFMTextField: View {
 
     var body: some View {
         TextField(placeholderText, text: textInput)
-            .textFieldStyle(.roundedBorder)
+//            .textFieldStyle(.roundedBorder)
             .disableAutocorrection(true)
             .font(.title2)
+            .frame(width: 260, height: 50)
+            .background(RoundedRectangle(cornerRadius: 10).strokeBorder(.gray))
 //            .font(.system(size: 20, weight: .bold))
-            .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(.gray, style: StrokeStyle(lineWidth: 2)))
+//            .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(.gray, style: StrokeStyle(lineWidth: 2)))
             .padding()
             .scaledToFit()
             .multilineTextAlignment(.center)

@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct SearchView: View {
+    
     var body: some View {
-        ZStack {
-            Color.pink
+        VStack(spacing: 20) {
+            Spacer()
+            Image("gh-logo")
+                .resizable()
+//                .scaledToFit()
+//                .padding()
+//                .aspectRatio(contentMode: .fit)
+                .frame(width: 240, height: 240)
+            GFMTextField(placeholderText: "Enter Username", textInput: .constant(""))
+                .padding()
+            Spacer()
+            GFMButton(title: "Get Followers") {
+                // TODO
+            }
+            .padding(.bottom, 80)
         }
     }
 }
