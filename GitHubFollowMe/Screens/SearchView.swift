@@ -11,6 +11,7 @@ struct SearchView: View {
 
     @FocusState private var focusedTextField: SearchFieldEnum?
     @State private var usernameInput = ""
+    @State private var showFollowersView = false
     
     var body: some View {
         VStack(spacing: 20) {
@@ -28,11 +29,15 @@ struct SearchView: View {
             GFMButton(title: "Get Followers") {
                 // TODO
                 print("Textfield input: \(usernameInput)")
+                showFollowersView.toggle()
             }
             .padding(.bottom, 80)
         }
         .onTapGesture {
             focusedTextField = nil
+        }
+        .sheet(isPresented: $showFollowersView) {
+            FollowersView()
         }
     }
 }
