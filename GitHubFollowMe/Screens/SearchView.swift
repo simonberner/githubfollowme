@@ -10,9 +10,10 @@ import SwiftUI
 struct SearchView: View {
 
     @FocusState private var focusedTextField: SearchFieldEnum?
-    @State private var usernameInput = ""
-    @State private var showFollowersView = false
-    
+    @StateObject var viewModel = GFMViewModel()
+//    @State private var usernameInput = ""
+//    @State private var showFollowersView = false
+
     var body: some View {
         VStack(spacing: 20) {
 //            Spacer()
@@ -23,21 +24,24 @@ struct SearchView: View {
 //                .aspectRatio(contentMode: .fit)
                 .frame(width: 240, height: 240)
                 .padding(.top, 40)
-            GFMTextField(placeholderText: "Enter Username", textInput: $usernameInput, focusedTextField: $focusedTextField)
+            GFMTextField(placeholderText: "Enter Username", textInput: $viewModel.usernameInput, focusedTextField: $focusedTextField)
                 .padding(.top, 40)
             Spacer()
             GFMButton(title: "Get Followers") {
-                // TODO
-                print("Textfield input: \(usernameInput)")
-                showFollowersView.toggle()
+                viewModel.checkValidUsernameInput()
             }
             .padding(.bottom, 80)
         }
         .onTapGesture {
             focusedTextField = nil
         }
-        .sheet(isPresented: $showFollowersView) {
+        .sheet(isPresented: $viewModel.showFollowersView) {
             FollowersView()
+        }
+        .alert(Text(viewModel.alertItem?.title ?? ""), isPresented: $viewModel.showAlert) {
+            Button(viewModel.alertItem?.buttonText ?? "", role: .cancel) {}
+        } message: {
+            Text(viewModel.alertItem?.message ?? "")
         }
     }
 }
