@@ -15,7 +15,11 @@ final class GFMViewModel: ObservableObject {
     @Published var showFollowersView = false
 
     func checkValidUsernameInput() {
-        if usernameInput.isValidUsername {
+        // TODO: can we improve this?
+        if usernameInput == "" {
+            alertItem = AlertContext.noUsername
+            showAlert.toggle()
+        } else if usernameInput.isValidUsername {
             showFollowersView.toggle()
         } else {
             alertItem = AlertContext.invalidUsernameInput
