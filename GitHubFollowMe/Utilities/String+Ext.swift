@@ -13,6 +13,7 @@ extension String {
      regex for a valid GitHub username:
      - alphanumeric
      - can include '-'
+     - max 39 chars long
      - no consecutive '-' (tow or more dashes)
      - no '-' at the start or end
 
@@ -20,7 +21,7 @@ extension String {
      Test the regex with: https://regexr.com/
      */
     var isValidUsername: Bool {
-        let usernameFormat = "/^[a-z/d](?:[a-z/d]|-(?=[a-z/d])){0,38}$/i"
+        let usernameFormat = "^[a-z/d](?:[a-z/d]|-(?=[a-z/d])){0,38}$"
         let usernamePredicate = NSPredicate(format: "SELF MATCHES %@", usernameFormat)
         return usernamePredicate.evaluate(with: self)
     }
