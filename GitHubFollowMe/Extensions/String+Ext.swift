@@ -12,10 +12,10 @@ extension String {
     /**
      regex for a valid GitHub username:
      - alphanumeric
-     - can include '-'
+     - can include a dash –
      - max 39 chars long
-     - no consecutive '-' (tow or more dashes)
-     - no '-' at the start or end
+     - no consecutive dashes –– (two or more dashes in a row)
+     - no dash – at the start or end
 
      NSPredicate: https://nspredicate.xyz/
      Test the regex with: https://regexr.com/

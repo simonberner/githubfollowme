@@ -11,8 +11,6 @@ struct SearchView: View {
 
     @FocusState private var focusedTextField: SearchFieldEnum?
     @StateObject var viewModel = GFMViewModel()
-//    @State private var usernameInput = ""
-//    @State private var showFollowersView = false
 
     var body: some View {
         VStack(spacing: 20) {

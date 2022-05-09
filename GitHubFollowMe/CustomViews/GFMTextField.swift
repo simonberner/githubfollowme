@@ -24,10 +24,10 @@ struct GFMTextField: View {
             .scaledToFit()
             .multilineTextAlignment(.center)
             .focused(focusedTextField, equals: SearchFieldEnum.username)
-            .submitLabel(.go)
-            .onSubmit {
-                print("Textfield input: \(textInput.wrappedValue)")
-            }
+//            .submitLabel(.go)
+//            .onSubmit {
+//                print("Textfield input: \(textInput.wrappedValue)")
+//            }
 
     }
 }

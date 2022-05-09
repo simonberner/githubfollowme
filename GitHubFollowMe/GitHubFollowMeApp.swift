@@ -11,7 +11,7 @@ import SwiftUI
 struct GitHubFollowMeApp: App {
     var body: some Scene {
         WindowGroup {
-            GitHubFollowMeTabView()
+            GFMTabView()
         }
     }
 }
