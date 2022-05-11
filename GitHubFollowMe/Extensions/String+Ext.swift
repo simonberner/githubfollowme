@@ -12,10 +12,11 @@ extension String {
     /**
      regex for a valid GitHub username:
      - alphanumeric
-     - can include a dash –
+     - single hyphens -
      - max 39 chars long
-     - no consecutive dashes –– (two or more dashes in a row)
-     - no dash – at the start or end
+     - no consecutive hyphens -- (two or more hyphens in a row)
+     - no hyphen at the beginning or end
+     (Validation message from GitHub: Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.)
 
      NSPredicate: https://nspredicate.xyz/
      Test the regex with: https://regexr.com/
