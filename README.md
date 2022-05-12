@@ -1,4 +1,4 @@
-#  GitHubFollowMe
+# GitHubFollowMe (🚧 in progress...)
 This App is an example how a Take-Me-Home Project on an interview for an iOS Developer position can look like.
 
 <p align="center">
@@ -17,6 +17,7 @@ This App is an example how a Take-Me-Home Project on an interview for an iOS Dev
 - Swift 5.6
 - SwiftUI
 - Xcode 13.3
+- Codable
 
 ## Libraries
 🚫 No 3rd Party Libraries in use 
@@ -34,6 +35,11 @@ This App runs on an iPhone with iOS >= 15.4
 ## Screens
 
 ## Learnings
+### Dashes and Hyphen
+- [Never use a hyphen where an 'en dash' or an 'em dash' is required.](https://www.thepunctuationguide.com/hyphen.html)
+- [en dash is slightly wider than the hyphen](https://www.thepunctuationguide.com/en-dash.html)
+- [Do not mistake the em dash (—) for the slightly narrower en dash (–) or the even narrower hyphen (-)] (https://www.thepunctuationguide.com/em-dash.html)
+### TBD
 - [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
 - [SOLID Principles in Swift](https://pyartez.github.io/architecture/solid-principles-in-swift-liskov-substitution-principle.html)
 - [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
@@ -62,6 +68,11 @@ This App runs on an iPhone with iOS >= 15.4
 - Increases testability (from a Unit/Integration Test perspective)
 ### UIKit vs SwiftUI
 - What is called view in SwiftUI, are called ViewControllers in UIKit
+### Codable
+- [Codable is an API to encode and decode data to/from a serialized format like JSON](https://www.swiftbysundell.com/basics/codable/)
+- Encode to JSON
+- Decode from JSON
+- One can use camelCase for var names in a struct. Thankfully, both JSONEncoder and JSONDecoder provide a keyDecodingStrategy or .keyEncodingStrategy to .convertToSnakeCase.
 
 ## Worklog
 - Create screens and views
