@@ -12,3 +12,8 @@ struct Follower: Codable {
     var login: String
     var avatarUrl: String
 }
+
+// Helper response object
+struct FollowerResponse: Decodable {
+    let request: [Follower]
+}
