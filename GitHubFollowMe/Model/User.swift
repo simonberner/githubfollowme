@@ -10,7 +10,7 @@ import Foundation
 // Some GitHub profile fields of a user are optional
 struct User: Codable {
     var login: String
-    var avatar_url: String
+    var avatarUrl: String
     var name: String?
     var location: String?
     var bio: String?
