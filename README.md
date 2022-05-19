@@ -16,7 +16,7 @@ This App is an example how a Take-Me-Home Project on an interview for an iOS Dev
 ## Tech Stack
 - Swift 5.6
 - SwiftUI
-- Xcode 13.3
+- Xcode 13.4
 - Codable
 
 ## Libraries
@@ -32,15 +32,36 @@ This App runs on an iPhone with iOS 15+
 - Display the data in a pretty UI
 - (Maybe some custom alerts to impress, but that might be way beyond the scope of any take me home project)
 
+## What interviewers might be looking for
+- The given time frame for building such an App, is not what matters most
+- What are the persons's first steps for building the app?
+- Are there any design drawings present?
+- App-Icon?
+- Does the project include a README?
+- How does the UI look like? -> Apple design guidelines
+- Are the given tasks completed?
+- Does the App actually do what it is supposed to do?
+- Design Patterns?
+- Upload in TestFlight?
+- No crashes (handling of optionals?)
+- Testing: Unit-Tests? How well are the test activities documented? Real-Device Testing?
+
 ## Screens
 ![Search](gfm-white.png)
 ![Search](gfm-dark.png)
+
+## Functionality
+The functionalities of this App are not rocket sience. But still, they show in a nice way, how one can fetch and present user data
+from the GitHub API.
+- Get and display all the followers of a specific GitHub user.
+- View the profile of a specific follower.
+- Add a follower to a list of favourites.
 
 ## Learnings
 ### Dashes and Hyphen
 - [Never use a hyphen where an 'en dash' or an 'em dash' is required.](https://www.thepunctuationguide.com/hyphen.html)
 - [en dash is slightly wider than the hyphen](https://www.thepunctuationguide.com/en-dash.html)
-- [Do not mistake the em dash (—) for the slightly narrower en dash (–) or the even narrower hyphen (-)] (https://www.thepunctuationguide.com/em-dash.html)
+- [Do not mistake the em dash (—) for the slightly narrower en dash (–) or the even narrower hyphen (-)](https://www.thepunctuationguide.com/em-dash.html)
 ### TBD
 - [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
 - [SOLID Principles in Swift](https://pyartez.github.io/architecture/solid-principles-in-swift-liskov-substitution-principle.html)
