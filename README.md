@@ -23,7 +23,7 @@ This App is an example how a Take-Me-Home Project on an interview for an iOS Dev
 🚫 No 3rd Party Libraries in use 
 
 ## Device Requirements
-This App runs on an iPhone with iOS >= 15.4
+This App runs on an iPhone with iOS 15+
 
 ## Common Take-Me-Home Project Tasks
 - Do some small design
@@ -33,6 +33,8 @@ This App runs on an iPhone with iOS >= 15.4
 - (Maybe some custom alerts to impress, but that might be way beyond the scope of any take me home project)
 
 ## Screens
+![Search](gfm-white.png)
+![Search](gfm-dark.png)
 
 ## Learnings
 ### Dashes and Hyphen
@@ -53,7 +55,7 @@ This App runs on an iPhone with iOS >= 15.4
 - [How to use SwiftLint with Xcode](https://developerinsider.co/how-to-use-swiftlint-with-xcode-to-enforce-swift-style-and-conventions/)
 - [Rule Directory](https://realm.github.io/SwiftLint/rule-directory.html)
 ### Architecture
-- [What architecture do you use for your SwiftUI app?](https://twitter.com/dejadu13/status/1523679164397920258)
+- [Point free](https://www.pointfree.co/)
 - [iOS Architecture Patterns](https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52)
 - [iOS Design Patterns](https://www.raywenderlich.com/ios/paths/iosdesignpatterns)
 - Design patterns are abstract ways of arranging code meant to be applied to your unique codebase and requirements.
@@ -62,13 +64,23 @@ This App runs on an iPhone with iOS >= 15.4
     - Easy to understand
     - Well organized
     - Maintainable and easy to expand/extend/build upon it in the future
-- People are often to focused on: "OMG, which design patter do we have to use? MVC?, [Viper](https://www.raywenderlich.com/8440907-getting-started-with-the-viper-architecture-pattern), MVVM?"
+- People are often to focused on: "OMG, which design patter do we have to use? [What architecture do you use for your SwiftUI app?](https://twitter.com/dejadu13/status/1523679164397920258)
+    - [Viper](https://www.raywenderlich.com/8440907-getting-started-with-the-viper-architecture-pattern), MVVM?"
+    - [Singleton](https://developer.apple.com/documentation/swift/cocoa_design_patterns/managing_a_shared_resource_using_a_singleton)
+        - Convenient to have just one single global thing to share (e.g. NetworkManager, SessionManager)
+        - Cons because everyone can access (and maybe change it)!
+    - MVVM, MVC, VIPER
+    - [Composable Architecture](https://dzone.com/articles/composable-architecture?edition=731522)
+    - Coordinator Pattern
+    - TCA
+    - Elm?
 #### MVVM architecture
 - Keeps the code loosely coupled
 - Increases testability (from a Unit/Integration Test perspective)
 ### UIKit vs SwiftUI
 - What is called view in SwiftUI, are called ViewControllers in UIKit
 ### Codable
+- [](https://www.avanderlee.com/swift/json-parsing-decoding/)
 - [Codable is an API to encode and decode data to/from a serialized format like JSON](https://www.swiftbysundell.com/basics/codable/)
 - Encode to JSON
 - Decode from JSON
