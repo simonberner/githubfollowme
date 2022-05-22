@@ -23,16 +23,17 @@ final class NetworkManager {
              throw GFMError.invalidURL
         }
 
-        // tuple: get the data from the endpoint
+        // network call: retrieves the contents of the url and asynchronously delivers
+        // a tuple (containing a Data instance and a URLResponse
         let (data, urlResponse) = try await URLSession.shared.data(from: url)
-        print("URL response: \(urlResponse)")
+        print("URL response: \(urlResponse as? HTTPURLResponse)")
 
         do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(FollowerResponse.self, from: data).request
+            let decoder = JSONDecoder() // decodes the JSON into our FollowerResponse object
+            decoder.keyDecodingStrategy = .convertFromSnakeCase // we want to convert the key (not the data!) of the JSON
+            return try decoder.decode([Follower].self, from: data)
         } catch {
-            throw GFMError.invalidData
+            throw GFMError.invalidData // throwing a generic error when data can't be decoded
         }
     }
 }
