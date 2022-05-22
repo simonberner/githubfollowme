@@ -14,7 +14,7 @@ This App is an example how a Take-Me-Home Project on an interview for an iOS Dev
 </p>
 
 ## Tech Stack
-- Swift 5.6
+- Swift 5.6.1
 - SwiftUI
 - Xcode 13.4
 - Codable
@@ -30,14 +30,23 @@ This App runs on an iPhone with iOS 15+
 - Make a network call to an API
 - Retrieve the data and parse the JSON (e.g. from a GraphQL query)
 - Display the data in a pretty UI
-- (Maybe some custom alerts to impress, but that might be way beyond the scope of any take me home project)
+- Adding some Unit-Tests
+
+### Beyond the scope
+The following things can/will impress, but are in most cases way beyond the scope of a take me home project:
+- Error handling -> add custom alerts
+- Error handling -> handle each possible HTTPURLResponse code
+- Logging ([OSLog](https://developer.apple.com/documentation/oslog))
+- [SwiftLint](https://github.com/realm/SwiftLint)
+- An extensive suite of Unit-Tests
+- UI-Tests
 
 ## What interviewers might be looking for
 - The given time frame for building such an App, is not what matters most
 - What are the persons's first steps for building the app?
 - Are there any design drawings present?
 - App-Icon?
-- Does the project include a README?
+- Does the project include a README (with some screens of the App)?
 - How does the UI look like? -> Apple design guidelines
 - Are the given tasks completed?
 - Does the App actually do what it is supposed to do?
@@ -107,10 +116,15 @@ from the GitHub API.
 - Decode from JSON
 - One can use camelCase for var names in a struct. Thankfully, both JSONEncoder and JSONDecoder provide a keyDecodingStrategy or .keyEncodingStrategy to .convertToSnakeCase.
 
+## GitHub API
+- [List followers of a user](https://docs.github.com/en/rest/users/followers#list-followers-of-a-user)
+
 ## Worklog
 - Create screens and views
 - Add the view model
 - Validate username input by adding a regex 
+- Add the Model
+- Setup the NetworkManager with the singleton pattern
 
 ## Credits
 GitHubFollowMe is inspired by the course 'iOS Dev Job Interview Practice - Take Home Project' by [Sean Allen](https://twitter.com/seanallen_dev).
