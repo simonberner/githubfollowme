@@ -13,33 +13,28 @@ struct SearchView: View {
     @StateObject var viewModel = GFMViewModel()
 
     var body: some View {
-        VStack(spacing: 20) {
-//            Spacer()
-            Image("gh-logo")
-                .resizable()
-//                .scaledToFit()
-//                .padding()
-//                .aspectRatio(contentMode: .fit)
-                .frame(width: 240, height: 240)
-                .padding(.top, 40)
-            GFMTextField(placeholderText: "Enter Username", textInput: $viewModel.usernameInput, focusedTextField: $focusedTextField)
-                .padding(.top, 40)
-            Spacer()
-            GFMButton(title: "Get Followers") {
-                viewModel.checkValidUsernameInput()
+        NavigationView {
+            VStack {
+                NavigationLink(destination: Text("Search"), isActive: $viewModel.showFollowersView) { FollowersView() }
+                Image("gh-logo")
+                    .resizable()
+                    .frame(width: 240, height: 240)
+                GFMTextField(placeholderText: "Enter Username", textInput: $viewModel.usernameInput, focusedTextField: $focusedTextField)
+                    .padding(.top, 20)
+                Spacer()
+                GFMButton(title: "Get Followers") {
+                    viewModel.getFollowers()
+                }
+                .padding(.bottom, 60)
             }
-            .padding(.bottom, 80)
-        }
-        .onTapGesture {
-            focusedTextField = nil
-        }
-        .sheet(isPresented: $viewModel.showFollowersView) {
-            FollowersView()
-        }
-        .alert(Text(viewModel.alertItem?.title ?? ""), isPresented: $viewModel.showAlert) {
-            Button(viewModel.alertItem?.buttonText ?? "", role: .cancel) {}
-        } message: {
-            Text(viewModel.alertItem?.message ?? "")
+            .onTapGesture {
+                focusedTextField = nil
+            }
+            .alert(Text(viewModel.alertItem?.title ?? ""), isPresented: $viewModel.showAlert) {
+                Button(viewModel.alertItem?.buttonText ?? "", role: .cancel) {}
+            } message: {
+                Text(viewModel.alertItem?.message ?? "")
+            }
         }
     }
 }

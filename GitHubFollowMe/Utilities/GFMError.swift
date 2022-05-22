@@ -9,7 +9,7 @@ import Foundation
 
 enum GFMError: Error {
     case invalidURL
-    case invalidResponse
+//    case invalidResponse
     case invalidData
-    case unableToComplete
+//    case unableToComplete
 }

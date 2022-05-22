@@ -7,23 +7,51 @@
 
 import Foundation
 
-final class GFMViewModel: ObservableObject {
+@MainActor final class GFMViewModel: ObservableObject {
 
     @Published var usernameInput = ""
     @Published var alertItem: AlertItem?
     @Published var showAlert = false
     @Published var showFollowersView = false
+    @Published var followers: [Follower] = []
 
-    func checkValidUsernameInput() {
-        // TODO: can we improve this?
+    func getFollowers() {
+        if isValidUsername() {
+            Task {
+                do {
+                    followers = try await NetworkManager.shared.getFollowers(for: usernameInput, page: 1)
+                    print("Followers.count = \(followers.count)")
+                    print(followers)
+                } catch {
+                    if let gfmError = error as? GFMError {
+                        switch gfmError {
+                        case .invalidURL:
+                                alertItem = AlertContext.invalidURL
+                                // case .invalidResponse:
+                                // not used yet
+                        case .invalidData:
+                                alertItem = AlertContext.invalidData
+                                // case .unableToComplete:
+                                // not used yet
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func isValidUsername() -> Bool {
         if usernameInput == "" {
             alertItem = AlertContext.noUsername
             showAlert.toggle()
+            return false
         } else if usernameInput.isValidUsername {
             showFollowersView.toggle()
+            return true
         } else {
             alertItem = AlertContext.invalidUsernameInput
             showAlert.toggle()
+            return false
         }
     }
 }

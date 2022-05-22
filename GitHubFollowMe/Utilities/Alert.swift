@@ -20,4 +20,8 @@ struct AlertContext {
                                                 message: "Please enter a valid GitHub username.")
     static let noUsername = AlertItem(title: "⚠️ Empty username",
                                                 message: "Please enter a valid GitHub username. We need to know who to look for.")
+    static let invalidURL = AlertItem(title: "⚠️ Invalid URL",
+                                      message: "There is an issue connecting to GitHub. Please check your internet connection.")
+    static let invalidData = AlertItem(title: "⚠️ Invalid Data",
+                                      message: "The Data received from GitHub is invalid. Please check the username and try again.")
 }
