@@ -20,6 +20,7 @@ import Foundation
             Task {
                 do {
                     followers = try await NetworkManager.shared.getFollowers(for: usernameInput, page: 1)
+                    showFollowersView.toggle()
                     print("Followers.count = \(followers.count)")
                     print(followers)
                 } catch {
@@ -27,10 +28,13 @@ import Foundation
                         switch gfmError {
                         case .invalidURL:
                                 alertItem = AlertContext.invalidURL
-                                // case .invalidResponse:
-                                // not used yet
+                                showAlert.toggle()
+                        case .invalidResponse:
+                                alertItem = AlertContext.invalidResponse
+                                showAlert.toggle()
                         case .invalidData:
                                 alertItem = AlertContext.invalidData
+                                showAlert.toggle()
                                 // case .unableToComplete:
                                 // not used yet
                         }
@@ -46,7 +50,6 @@ import Foundation
             showAlert.toggle()
             return false
         } else if usernameInput.isValidUsername {
-            showFollowersView.toggle()
             return true
         } else {
             alertItem = AlertContext.invalidUsernameInput

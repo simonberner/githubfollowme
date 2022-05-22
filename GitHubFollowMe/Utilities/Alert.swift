@@ -24,4 +24,6 @@ struct AlertContext {
                                       message: "There is an issue connecting to GitHub. Please check your internet connection.")
     static let invalidData = AlertItem(title: "⚠️ Invalid Data",
                                       message: "The Data received from GitHub is invalid. Please check the username and try again.")
+    static let invalidResponse = AlertItem(title: "⚠️ Invalid Response",
+                                      message: "Invalid response from GitHub. Please check the username and try again.")
 }

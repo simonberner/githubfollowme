@@ -26,7 +26,12 @@ final class NetworkManager {
         // network call: retrieves the contents of the url and asynchronously delivers
         // a tuple (containing a Data instance and a URLResponse
         let (data, urlResponse) = try await URLSession.shared.data(from: url)
-        print("URL response: \(urlResponse as? HTTPURLResponse)")
+
+        // TODO: what happens when no internet connection?
+        guard let response = urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GFMError.invalidResponse
+        }
+        print("Server response: \(response.debugDescription)")
 
         do {
             let decoder = JSONDecoder() // decodes the JSON into our FollowerResponse object
