@@ -23,22 +23,26 @@ final class NetworkManager {
              throw GFMError.invalidURL
         }
 
-        // network call: retrieves the contents of the url and asynchronously delivers
-        // a tuple (containing a Data instance and a URLResponse
-        let (data, urlResponse) = try await URLSession.shared.data(from: url)
-
-        // TODO: what happens when no internet connection?
-        guard let response = urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
-            throw GFMError.invalidResponse
-        }
-        print("Server response: \(response.debugDescription)")
-
         do {
-            let decoder = JSONDecoder() // decodes the JSON into our FollowerResponse object
-            decoder.keyDecodingStrategy = .convertFromSnakeCase // we want to convert the key (not the data!) of the JSON
-            return try decoder.decode([Follower].self, from: data)
+            /// Convenience method to load data using an URL, creates and resumes an URLSessionDataTask internally.
+            // network call: retrieves the contents of the url and asynchronously delivers
+            // a tuple (containing a Data instance and a URLResponse
+            let (data, urlResponse) = try await URLSession.shared.data(from: url)
+
+            guard let response = urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
+                throw GFMError.invalidResponse
+            }
+
+            do {
+                let decoder = JSONDecoder() // decodes the JSON into our FollowerResponse object
+                decoder.keyDecodingStrategy = .convertFromSnakeCase // we want to convert the key (not the data!) of the JSON
+                return try decoder.decode([Follower].self, from: data)
+            } catch {
+                throw GFMError.invalidData // throwing a generic error when data can't be decoded
+            }
         } catch {
-            throw GFMError.invalidData // throwing a generic error when data can't be decoded
+            throw GFMError.offline
         }
+
     }
 }

@@ -11,5 +11,5 @@ enum GFMError: Error {
     case invalidURL
     case invalidResponse
     case invalidData
-//    case unableToComplete
+    case offline
 }

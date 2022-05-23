@@ -35,8 +35,9 @@ import Foundation
                         case .invalidData:
                                 alertItem = AlertContext.invalidData
                                 showAlert.toggle()
-                                // case .unableToComplete:
-                                // not used yet
+                        case .offline:
+                                alertItem = AlertContext.offline
+                                showAlert.toggle()
                         }
                     }
                 }
