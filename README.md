@@ -13,19 +13,19 @@ This App is an example how a Take-Me-Home Project on an interview for an iOS Dev
     </a>
 </p>
 
-## Tech Stack
+## Tech Stack 🕹
 - Swift 5.6.1
 - SwiftUI
 - Xcode 13.4
 - Codable
 
-## Libraries
+## Libraries 📚
 🚫 No 3rd Party Libraries in use 
 
-## Device Requirements
+## Device Requirements 📱
 This App runs on an iPhone with iOS 15+
 
-## Common Take-Me-Home Project Tasks
+## Common Take-Me-Home Project Tasks 📝
 - Do some small design
 - Make a network call to an API
 - Retrieve the data and parse the JSON (e.g. from a GraphQL query)
@@ -41,7 +41,7 @@ The following things can/will impress, but are in most cases way beyond the scop
 - An extensive suite of Unit-Tests
 - UI-Tests
 
-## What interviewers might be looking for
+## What interviewers might be looking for 🎤
 - The given time frame for building such an App, is not what matters most
 - What are the persons's first steps for building the app?
 - Are there any design drawings present?
@@ -54,19 +54,25 @@ The following things can/will impress, but are in most cases way beyond the scop
 - Upload in TestFlight?
 - No crashes (handling of optionals?)
 - Testing: Unit-Tests? How well are the test activities documented? Real-Device Testing?
+- Answers to questions like:
+    - Why did you implement the App the way you did?
+    - What are your learnings in building this App?
+    - How and what would you improve in the future?
+    - What would you next work on?
+    - Have you already some future Testing-Strategy in mind?
 
-## Screens
+## Screens 📺
 ![Search](gfm-white.png)
 ![Search](gfm-dark.png)
 
-## Functionality
+## Functionality 🎼
 The functionalities of this App are not rocket sience. But still, they show in a nice way, how one can fetch and present user data
 from the GitHub API.
 - Get and display all the followers of a specific GitHub user.
 - View the profile of a specific follower.
 - Add a follower to a list of favourites.
 
-## Learnings
+## Learnings 🎬
 ### Dashes and Hyphen
 - [Never use a hyphen where an 'en dash' or an 'em dash' is required.](https://www.thepunctuationguide.com/hyphen.html)
 - [en dash is slightly wider than the hyphen](https://www.thepunctuationguide.com/en-dash.html)
@@ -104,28 +110,36 @@ from the GitHub API.
     - Coordinator Pattern
     - TCA
     - Elm?
+    - [Circuit breaker](https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern)
 #### MVVM architecture
 - Keeps the code loosely coupled
 - Increases testability (from a Unit/Integration Test perspective)
 ### UIKit vs SwiftUI
 - What is called view in SwiftUI, are called ViewControllers in UIKit
 ### Codable
-- [](https://www.avanderlee.com/swift/json-parsing-decoding/)
+- [JSON Parsing in Swift explained with code examples](https://www.avanderlee.com/swift/json-parsing-decoding/)
 - [Codable is an API to encode and decode data to/from a serialized format like JSON](https://www.swiftbysundell.com/basics/codable/)
 - Encode to JSON
 - Decode from JSON
 - One can use camelCase for var names in a struct. Thankfully, both JSONEncoder and JSONDecoder provide a keyDecodingStrategy or .keyEncodingStrategy to .convertToSnakeCase.
+### Guard
+- [Make your intent much clearer by using the keyword: 'guard'. Use it to tell what you want, rather than the reverse.](https://www.hackingwithswift.com/new-syntax-swift-2-guard)
+### Commenting code
+- [The Art of Commenting in Swift](https://www.vadimbulavin.com/the-art-of-commenting-in-swift/)
 
-## GitHub API
+## Unit-Tests 🧪
+- [Unit testing: the pragmatic guide on where to start](https://hybridcattt.com/blog/start-testing-pragmatic-guide/)
+
+## GitHub API 🐙😸
 - [List followers of a user](https://docs.github.com/en/rest/users/followers#list-followers-of-a-user)
 
-## Worklog
+## Worklog 🏗
 - Create screens and views
 - Add the view model
 - Validate username input by adding a regex 
 - Add the Model
 - Setup the NetworkManager with the singleton pattern
 
-## Credits
+## Credits 🙏🏽
 GitHubFollowMe is inspired by the course 'iOS Dev Job Interview Practice - Take Home Project' by [Sean Allen](https://twitter.com/seanallen_dev).
 I am currently porting the original UIKit implementation to SwiftUI.
