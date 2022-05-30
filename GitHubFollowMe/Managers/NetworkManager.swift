@@ -14,7 +14,12 @@ final class NetworkManager {
 
     private init() {}
 
-    // async -> runs on a background thread
+    /// Get all the followers of a specific GitHub user
+    /// (async -> runs on a background thread)
+    /// - Parameters:
+    ///   - username: GitHub username
+    ///   - page: which page of followers to get
+    /// - Returns: an Array of followers
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
         let followerEndpoint = baseURL + "\(username)/followers?per_page=100&page=\(page)"
 
@@ -23,10 +28,10 @@ final class NetworkManager {
              throw GFMError.invalidURL
         }
 
-        do {
-            /// Convenience method to load data using an URL, creates and resumes an URLSessionDataTask internally.
-            // network call: retrieves the contents of the url and asynchronously delivers
-            // a tuple (containing a Data instance and a URLResponse
+//        do {
+            // Convenience method to load data using an URL, creates and resumes an URLSessionDataTask internally.
+            // network call: retrieves the contents of the url and asynchronously delivers a tuple (containing a Data instance and a URLResponse
+            // handle the error case GFMError.offline
             let (data, urlResponse) = try await URLSession.shared.data(from: url)
 
             guard let response = urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
@@ -40,9 +45,9 @@ final class NetworkManager {
             } catch {
                 throw GFMError.invalidData // throwing a generic error when data can't be decoded
             }
-        } catch {
-            throw GFMError.offline
-        }
+//        } catch {
+//            throw GFMError.offline
+//        }
 
     }
 }
