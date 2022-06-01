@@ -1,5 +1,6 @@
 # GitHubFollowMe (🚧 in progress...)
-This App is an example how a Take-Me-Home Project on an interview for an iOS Developer position can look like.
+This is my latest (Summer 2022) portfolio App and also an example how a Take-Me-Home Project for a iOS Developer position can look like.
+(Scope: middle iOS Developer position)
 
 <p align="center">
     <img src="https://img.shields.io/badge/iOS-15.4+-blue.svg" />
@@ -30,6 +31,7 @@ This App runs on an iPhone with iOS 15+
 - Make a network call to an API
 - Retrieve the data and parse the JSON (e.g. from a GraphQL query)
 - Display the data in a pretty UI
+- Apply some design patterns
 - Adding some Unit-Tests
 
 ### Beyond the scope
@@ -45,7 +47,7 @@ The following things can/will impress, but are in most cases way beyond the scop
 - The given time frame for building such an App, is not what matters most
 - What are the persons's first steps for building the app?
 - Are there any design drawings present?
-- App-Icon?
+- App-Icon? (Might be a nice final touch and giving some extra creativity points)
 - Does the project include a README (with some screens of the App)?
 - How does the UI look like? -> Apple design guidelines
 - Are the given tasks completed?
@@ -77,20 +79,22 @@ from the GitHub API.
 - [Never use a hyphen where an 'en dash' or an 'em dash' is required.](https://www.thepunctuationguide.com/hyphen.html)
 - [en dash is slightly wider than the hyphen](https://www.thepunctuationguide.com/en-dash.html)
 - [Do not mistake the em dash (—) for the slightly narrower en dash (–) or the even narrower hyphen (-)](https://www.thepunctuationguide.com/em-dash.html)
-### TBD
+### SwiftUI
+- [GeometryReader?](https://swiftwithmajid.com/2020/11/04/how-to-use-geometryreader-without-breaking-swiftui-layout/)
+    - Caution: it fills all the available space, and usually, this is not something you want to achieve.
 - [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
-- [SOLID Principles in Swift](https://pyartez.github.io/architecture/solid-principles-in-swift-liskov-substitution-principle.html)
 - [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
 - [How to present a new view using sheets](https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-new-view-using-sheets)
-- [Regular Expression in Swift](https://www.advancedswift.com/regular-expressions/)
 ### Regular Expressions
 - [Create and Test regex](https://regexr.com/)
+- [Regular Expression in Swift](https://www.advancedswift.com/regular-expressions/)
 ### NSPredicate
 - [Examples Cheatsheet](https://nspredicate.xyz/)
 ### SwiftLint
 - [How to use SwiftLint with Xcode](https://developerinsider.co/how-to-use-swiftlint-with-xcode-to-enforce-swift-style-and-conventions/)
 - [Rule Directory](https://realm.github.io/SwiftLint/rule-directory.html)
 ### Architecture
+- [SOLID Principles in Swift](https://pyartez.github.io/architecture/solid-principles-in-swift-liskov-substitution-principle.html)
 - [Point free](https://www.pointfree.co/)
 - [iOS Architecture Patterns](https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52)
 - [iOS Design Patterns](https://www.raywenderlich.com/ios/paths/iosdesignpatterns)
@@ -126,6 +130,8 @@ from the GitHub API.
 - [Make your intent much clearer by using the keyword: 'guard'. Use it to tell what you want, rather than the reverse.](https://www.hackingwithswift.com/new-syntax-swift-2-guard)
 ### Commenting code
 - [The Art of Commenting in Swift](https://www.vadimbulavin.com/the-art-of-commenting-in-swift/)
+### Async await
+- [Available from Swift 5.5](https://www.hackingwithswift.com/swift/5.5/async-await)
 
 ## Unit-Tests 🧪
 - [Unit testing: the pragmatic guide on where to start](https://hybridcattt.com/blog/start-testing-pragmatic-guide/)
@@ -135,10 +141,18 @@ from the GitHub API.
 
 ## Worklog 🏗
 - Create screens and views
-- Add the view model
+- Add the view model (MVVM)
 - Validate username input by adding a regex 
-- Add the Model
-- Setup the NetworkManager with the singleton pattern
+- Add the Model (MVVM)
+- Setup the NetworkManager (Singleton Pattern)
+
+## Junior, Middle, Senior, Expert, Lead, Architect? 🧢
+In our industry, we very often categorise/put ourself and others in experience levels. Sometimes this can be good as reference
+but sometimes it can be harmful and misleading. There might also be the situation where you are Senior in one area and want to
+move on into another area (same industry) where you haven't years of working experience - are you then a Junior all over again?
+It's hard to answer this question straight away because it depends, right? 😉
+The post [Junior, Middle, Senior, Lead - what's the difference?](https://dataart.com.ar/news/junior-middle-senior-lead-what-s-the-difference/)
+brings a little bit light into the above and reflects on the different experience levels.
 
 ## Credits 🙏🏽
 GitHubFollowMe is inspired by the course 'iOS Dev Job Interview Practice - Take Home Project' by [Sean Allen](https://twitter.com/seanallen_dev).
