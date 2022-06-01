@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MainActor: anything in this class will be rerouted to the main (UI) queue/thread
 @MainActor final class GFMViewModel: ObservableObject {
 
     @Published var usernameInput = ""

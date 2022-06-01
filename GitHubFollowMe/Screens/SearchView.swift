@@ -10,12 +10,15 @@ import SwiftUI
 struct SearchView: View {
 
     @FocusState private var focusedTextField: SearchFieldEnum?
-    @StateObject var viewModel = GFMViewModel()
+    @StateObject var viewModel = GFMViewModel() // this view owns the viewModel
 
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: Text("Search"), isActive: $viewModel.showFollowersView) { FollowersView() }
+                NavigationLink("", destination: FollowersView(username: viewModel.usernameInput,
+                                                              followers: viewModel.followers),
+                               isActive: $viewModel.showFollowersView)
+                    .navigationTitle(viewModel.showFollowersView ? "Search" : "")
                 Image("gh-logo")
                     .resizable()
                     .frame(width: 240, height: 240)

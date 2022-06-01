@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct FollowerCell: View {
+
+    var username = "username"
+    var avatarUrl = ""
+
     var body: some View {
         VStack {
-            AvatarImageView(imageURL: URL(string: ""), imageWidth: 120, imageHeight: 120)
-            Text("githubusername")
-                .frame(width: 120)
+            AvatarImageView(imageURL: URL(string: avatarUrl), imageWidth: 86, imageHeight: 86)
+            Text(username)
+                .frame(width: 86)
                 .lineLimit(1)
                 .accessibilityLabel("Follower GitHub Username")
         }
