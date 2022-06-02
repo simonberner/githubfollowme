@@ -31,12 +31,11 @@ struct FollowersView: View {
                     .foregroundColor(.gray)
                     .padding(.leading, 4)
                 TextField("Search for a username", text: $usernameSearch)
-                    .keyboardType(.namePhonePad)
                     .disableAutocorrection(true)
             }
             .frame(width: 300, height: 40)
-            .cornerRadius(20)
             .background(Color(.systemGroupedBackground))
+            .cornerRadius(10)
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns) {
                     ForEach(followers) { follower in
