@@ -1,5 +1,5 @@
 # GitHubFollowMe (🚧 in progress...)
-This is my latest (Summer 2022) portfolio App and also an example how a Take-Me-Home Project for a iOS Developer position can look like.
+This is my latest (Spring/Summer 2022) portfolio App and also an example how a Take-Me-Home Project for a iOS Developer position can look like.
 (Scope: middle iOS Developer position)
 
 <p align="center">
@@ -47,7 +47,7 @@ The following things can/will impress, but are in most cases way beyond the scop
 - The given time frame for building such an App, is not what matters most
 - What are the persons's first steps for building the app?
 - Are there any design drawings present?
-- App-Icon? (Might be a nice final touch and giving some extra creativity points)
+- App-Icon? (Might be a nice final touch and give you some extra creativity points)
 - Does the project include a README (with some screens of the App)?
 - How does the UI look like? -> Apple design guidelines
 - Are the given tasks completed?
@@ -56,6 +56,8 @@ The following things can/will impress, but are in most cases way beyond the scop
 - Upload in TestFlight?
 - No crashes (handling of optionals?)
 - Testing: Unit-Tests? How well are the test activities documented? Real-Device Testing?
+- Is [Automatic Reference Counting](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) taken into account for instances of classes?
+(Structs an enums are value types!)
 - Answers to questions like:
     - Why did you implement the App the way you did?
     - What are your learnings in building this App?
@@ -81,10 +83,12 @@ from the GitHub API.
 - [Do not mistake the em dash (—) for the slightly narrower en dash (–) or the even narrower hyphen (-)](https://www.thepunctuationguide.com/em-dash.html)
 ### SwiftUI
 - [GeometryReader?](https://swiftwithmajid.com/2020/11/04/how-to-use-geometryreader-without-breaking-swiftui-layout/)
+    - Lets you calculate the device screensize
     - Caution: it fills all the available space, and usually, this is not something you want to achieve.
 - [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
 - [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
 - [How to present a new view using sheets](https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-new-view-using-sheets)
+- Caution: The order of the applied view modifiers matters, because each of them returns a new view!
 ### Regular Expressions
 - [Create and Test regex](https://regexr.com/)
 - [Regular Expression in Swift](https://www.advancedswift.com/regular-expressions/)
@@ -94,6 +98,7 @@ from the GitHub API.
 - [How to use SwiftLint with Xcode](https://developerinsider.co/how-to-use-swiftlint-with-xcode-to-enforce-swift-style-and-conventions/)
 - [Rule Directory](https://realm.github.io/SwiftLint/rule-directory.html)
 ### Architecture
+- [Awesome iOS architecture](https://github.com/onmyway133/awesome-ios-architecture#data-source)
 - [SOLID Principles in Swift](https://pyartez.github.io/architecture/solid-principles-in-swift-liskov-substitution-principle.html)
 - [Point free](https://www.pointfree.co/)
 - [iOS Architecture Patterns](https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52)
@@ -132,6 +137,23 @@ from the GitHub API.
 - [The Art of Commenting in Swift](https://www.vadimbulavin.com/the-art-of-commenting-in-swift/)
 ### Async await
 - [Available from Swift 5.5](https://www.hackingwithswift.com/swift/5.5/async-await)
+### UICollectionViewDiffableDataSource (iOS13+ - UIKit)
+- Is a new way to handle data for CollectionViews
+- Takes a snapshot of your data before you make any changes
+- When you then make new changes, it takes another snapshot and does all the diffable magic in the background and animation
+- enums are hashable by default
+- [Diffable Data Sources are a great new addition to UIKit](https://www.avanderlee.com/swift/diffable-data-sources-adoption/)
+- [Diffable Data Source with two example apps](https://github.com/alexpaul/Diffable-Data-Source)
+- [UICollectionView and SwiftUI?](https://stackoverflow.com/questions/56466306/uicollectionview-and-swiftui)
+- [CollectionView in SwiftUI with LazyVGrid and LazyHGrid](https://sarunw.com/posts/swiftui-lazyvgrid-lazyhgrid/)
+- [A SwiftUI implementation of UICollectionView & UITableView](https://github.com/apptekstudios/ASCollectionView)
+### Automatic Reference Counting (ARC)
+- Interview question: explain memory management in Swift (or something along these lines)
+- [Allocates and Deallocates references from memory](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html)
+- 'weak' will create a weak reference instead of a strong reference which may lead to a memory leak. A weak reference will cause
+that the reference count won't increase! [Ref](https://seanallen.teachable.com/courses/681906/lectures/13465658)
+- Anytime we make something weak, it is going to be optional (can be nil)
+- 'unowned' is like weak but instead force unwraps the optional
 
 ## Unit-Tests 🧪
 - [Unit testing: the pragmatic guide on where to start](https://hybridcattt.com/blog/start-testing-pragmatic-guide/)
@@ -145,6 +167,7 @@ from the GitHub API.
 - Validate username input by adding a regex 
 - Add the Model (MVVM)
 - Setup the NetworkManager (Singleton Pattern)
+- Implement the LazyVGrid and DataSource???
 
 ## Junior, Middle, Senior, Expert, Lead, Architect? 🧢
 In our industry, we very often categorise/put ourself and others in experience levels. Sometimes this can be good as reference
