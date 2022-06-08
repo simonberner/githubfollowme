@@ -12,9 +12,11 @@ struct AvatarImageView: View {
     var imageWidth: CGFloat
     var imageHeight: CGFloat
 
+    private let transaction: Transaction = .init(animation: .linear)
+
     var body: some View {
         VStack {
-            AsyncImage(url: imageURL) { phase in
+            AsyncImage(url: imageURL, transaction: transaction) { phase in
                 switch phase {
                 case .empty:
                         Image("avatar-placeholder")
