@@ -12,7 +12,9 @@ final class NetworkManager {
     static let shared = NetworkManager()
     private let baseURL = "https://api.github.com/users/"
 
-    private init() {}
+    private init() {
+        configureAsyncImageUrlCache()
+    }
 
     /// Get all the followers of a specific GitHub user
     /// (async -> runs on a background thread)
@@ -49,5 +51,10 @@ final class NetworkManager {
 //            throw GFMError.offline
 //        }
 
+    }
+
+    private func configureAsyncImageUrlCache() {
+        URLCache.shared.memoryCapacity = 10_000_000 // ~10 MB memory space
+        URLCache.shared.diskCapacity = 1_000_000_000 // ~1GB disk cache space
     }
 }
