@@ -10,21 +10,14 @@ import SwiftUI
 struct FollowersView: View {
 
     @State private var usernameSearch = ""
-    var username = ""
-    var followers: [Follower] = []
+    @ObservedObject var viewModel: GFMViewModel // injected (not owned by this view) observed object
 
     var columns: [GridItem] =
-    Array(repeating: .init(.fixed(30), spacing: 80, alignment: .center), count: 3)
-
-    // we don't get a memberwise initializer as soon there is a private property
-    init(username: String, followers: [Follower]) {
-        self.username = username
-        self.followers = followers
-    }
+    Array(repeating: .init(.fixed(40), spacing: 80, alignment: .center), count: 3)
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(username)
+            Text(viewModel.usernameInput)
                 .font(.title2)
             HStack(spacing: 3) {
                 Image(systemName: "magnifyingglass")
@@ -38,7 +31,7 @@ struct FollowersView: View {
             .cornerRadius(10)
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns) {
-                    ForEach(followers) { follower in
+                    ForEach(viewModel.followers) { follower in
                         FollowerCell(username: follower.login, avatarUrl: follower.avatarUrl)
                     }
                     .onTapGesture {
@@ -55,8 +48,8 @@ struct FollowersView: View {
     }
 }
 
-struct FollowersView_Previews: PreviewProvider {
+ struct FollowersView_Previews: PreviewProvider {
     static var previews: some View {
-        FollowersView(username: "nobody", followers: MockData.followers)
+        FollowersView(viewModel: GFMViewModel())
     }
-}
+ }
