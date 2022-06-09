@@ -1,6 +1,6 @@
 # GitHubFollowMe (🚧 in progress...)
-This is my latest (Spring/Summer 2022) portfolio App and also an example how a Take-Me-Home Project for a iOS Developer position can look like.
-(Scope: middle iOS Developer position)
+This is my latest (Spring/Summer 2022) portfolio App and also an example how a Take-Me-Home Project for a iOS Developer position* can look like.
+(*Probably a Middle iOS Developer position)
 
 <p align="center">
     <img src="https://img.shields.io/badge/iOS-15.4+-blue.svg" />
@@ -16,8 +16,8 @@ This is my latest (Spring/Summer 2022) portfolio App and also an example how a T
 
 ## Tech Stack 🕹
 - Swift 5.6.1
-- SwiftUI
-- Xcode 13.4
+- [SwiftUI](https://developer.apple.com/documentation/swiftui) for iOS15+
+- Xcode 13.4.1
 - Codable
 
 ## Libraries 📚
@@ -33,17 +33,19 @@ This App runs on an iPhone with iOS 15+
 - Display the data in a pretty UI
 - Apply some design patterns
 - Adding some Unit-Tests
+- Write a great README (like this one here 😁)
 
-### Beyond the scope
+### Beyond the scope 🌅
 The following things can/will impress, but are in most cases way beyond the scope of a take me home project:
 - Error handling -> add custom alerts
 - Error handling -> handle each possible HTTPURLResponse code
 - Logging ([OSLog](https://developer.apple.com/documentation/oslog))
 - [SwiftLint](https://github.com/realm/SwiftLint)
+- Caching of images (which have to be downloaded)
 - An extensive suite of Unit-Tests
 - UI-Tests
 
-## What interviewers might be looking for 🎤
+### What interviewers might be looking for 🎤
 - The given time frame for building such an App, is not what matters most
 - What are the persons's first steps for building the app?
 - Are there any design drawings present?
@@ -58,12 +60,23 @@ The following things can/will impress, but are in most cases way beyond the scop
 - Testing: Unit-Tests? How well are the test activities documented? Real-Device Testing?
 - Is [Automatic Reference Counting](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) taken into account for instances of classes?
 (Structs an enums are value types!)
-- Answers to questions like:
+- Is the project/codebase cleaned-up at the end of the development (before it was turned in)?
+- After you have handed in your project, the interviewer might get back to you for a second part of the interview
+and ask some specific questions about the work you have done. Here some example questions:
     - Why did you implement the App the way you did?
+    - Why did you put this piece of code here and not there?
     - What are your learnings in building this App?
     - How and what would you improve in the future?
     - What would you next work on?
     - Have you already some future Testing-Strategy in mind?
+    
+### Tips for the interviewee 🤞🏾
+- Try to articulate as best as you can the reason why you implemented something the way you implemented it
+- Show that you are able to explore different solutions
+- There is no 'perfect way' of implementing something, only good ways where you have to choose one to go with
+- Show that you are able to look back with a critical eye at your code/solutions and improve things in the future
+- Tell that you are happy to learn from your team mates, having discussions, reviews and that you consider feedback as learning opportunities
+- I know that you know that one: Learning, Learning, Learning is key
 
 ## Screens 📺
 ![Search](gfm-white.png)
@@ -89,6 +102,8 @@ from the GitHub API.
 - [SwiftUI performance tips](https://martinmitrevski.com/2022/04/14/swiftui-performance-tips/)
 - [How to present a new view using sheets](https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-new-view-using-sheets)
 - Caution: The order of the applied view modifiers matters, because each of them returns a new view!
+- [@StateObject vs @ObservedObject])(https://www.avanderlee.com/swiftui/stateobject-observedobject-differences/)
+    - Use the state object property wrapper to ensure consistent results when the current view creates the observed object. Whenever you inject an observed object as dependency, you can use the @ObservedObject.
 ### Regular Expressions
 - [Create and Test regex](https://regexr.com/)
 - [Regular Expression in Swift](https://www.advancedswift.com/regular-expressions/)
@@ -149,11 +164,16 @@ from the GitHub API.
 - [A SwiftUI implementation of UICollectionView & UITableView](https://github.com/apptekstudios/ASCollectionView)
 ### Automatic Reference Counting (ARC)
 - Interview question: explain memory management in Swift (or something along these lines)
+- ARC automatically sets a weak reference to nil when the instance that it refers to is deallocated.
 - [Allocates and Deallocates references from memory](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html)
-- 'weak' will create a weak reference instead of a strong reference which may lead to a memory leak. A weak reference will cause
-that the reference count won't increase! [Ref](https://seanallen.teachable.com/courses/681906/lectures/13465658)
+- 'weak' will create a weak reference (instead of a [strong reference](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID51) which may lead to a memory leak).
+- A weak reference will cause that the reference count won't increase! [Ref](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID52)
 - Anytime we make something weak, it is going to be optional (can be nil)
 - 'unowned' is like weak but instead force unwraps the optional
+### [AsyncImage](https://developer.apple.com/documentation/SwiftUI/AsyncImage)
+- [AsyncImage. Loading images in SwiftUI](https://www.artemnovichkov.com/blog/async-image)
+- AsyncImage uses URLCache underneath
+- [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
 
 ## Unit-Tests 🧪
 - [Unit testing: the pragmatic guide on where to start](https://hybridcattt.com/blog/start-testing-pragmatic-guide/)
@@ -165,9 +185,17 @@ that the reference count won't increase! [Ref](https://seanallen.teachable.com/c
 - Create screens and views
 - Add the view model (MVVM)
 - Validate username input by adding a regex 
-- Add the Model (MVVM)
+- Add the Model (MVVM)e
 - Setup the NetworkManager (Singleton Pattern)
-- Implement the LazyVGrid and DataSource???
+- Implement the LazyVGrid
+- Add AsyncImage for avatar loading (not sure what URLCache actually caches? The URL or the image itself?)
+- Pagination in the Model and Infinite Scrolling in the View
+
+## Potential improvements 💡
+### Explore new/other solutions
+- Try [Nuke](https://github.com/kean/Nuke) for Image Loading instead of AsyncImage
+### Improvements
+- How can images be cached when using AsyncImage?
 
 ## Junior, Middle, Senior, Expert, Lead, Architect? 🧢
 In our industry, we very often categorise/put ourself and others in experience levels. Sometimes this can be good as reference
