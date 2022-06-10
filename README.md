@@ -18,7 +18,8 @@ This is my latest (Spring/Summer 2022) portfolio App and also an example how a T
 - Swift 5.6.1
 - [SwiftUI](https://developer.apple.com/documentation/swiftui) for iOS15+
 - Xcode 13.4.1
-- Codable
+- [Codable](https://developer.apple.com/documentation/swift/codable)
+- [Combine](https://www.avanderlee.com/swift/combine/)
 
 ## Libraries 📚
 🚫 No 3rd Party Libraries in use 
@@ -61,6 +62,7 @@ The following things can/will impress, but are in most cases way beyond the scop
 - Is [Automatic Reference Counting](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) taken into account for instances of classes?
 (Structs an enums are value types!)
 - Is the project/codebase cleaned-up at the end of the development (before it was turned in)?
+- Are there any 3rd party libraries in use? If yes, what is the reason behind that?
 - After you have handed in your project, the interviewer might get back to you for a second part of the interview
 and ask some specific questions about the work you have done. Here some example questions:
     - Why did you implement the App the way you did?
@@ -189,13 +191,14 @@ from the GitHub API.
 - Setup the NetworkManager (Singleton Pattern)
 - Implement the LazyVGrid
 - Add AsyncImage for avatar loading (not sure what URLCache actually caches? The URL or the image itself?)
-- Pagination in the Model and Infinite Scrolling in the View
+- Pagination in the viewModel and infinite Scrolling in the View
 
 ## Potential improvements 💡
 ### Explore new/other solutions
 - Try [Nuke](https://github.com/kean/Nuke) for Image Loading instead of AsyncImage
 ### Improvements
 - How can images be cached when using AsyncImage?
+- Add propper logging (OSLog)
 
 ## Junior, Middle, Senior, Expert, Lead, Architect? 🧢
 In our industry, we very often categorise/put ourself and others in experience levels. Sometimes this can be good as reference
