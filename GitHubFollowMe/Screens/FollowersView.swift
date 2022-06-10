@@ -35,7 +35,13 @@ struct FollowersView: View {
                         FollowerCell(username: follower.login, avatarUrl: follower.avatarUrl)
                     }
                     .onTapGesture {
-                        print("show detail view")
+                        print("TODO: show detail view")
+                    }
+                    if viewModel.hasMoreFollowers {
+                        ProgressView()
+                            .onAppear {
+                                viewModel.getFollowers()
+                            }
                     }
                 }
             }

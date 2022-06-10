@@ -15,15 +15,33 @@ import Foundation
     @Published var showAlert = false
     @Published var showFollowersView = false
     @Published var followers: [Follower] = []
+    @Published var hasMoreFollowers = true
+
+    private var page = 1
 
     func getFollowers() {
         if isValidUsername() {
             Task {
                 do {
-                    followers = try await NetworkManager.shared.getFollowers(for: usernameInput, page: 1)
-                    showFollowersView.toggle()
-                    print("Followers.count = \(followers.count)")
-                    print(followers)
+                    // get the first/next 100 followers
+                    let newFollowers = try await NetworkManager.shared.getFollowers(for: usernameInput, page: page)
+                    followers.append(contentsOf: newFollowers)
+                    print("New Followers count = \(newFollowers.count)")
+                    print("Total Followers count = \(followers.count)")
+                    print("Page count = \(page)")
+                    print("New followers: \(newFollowers)")
+
+                    // if the user has less than 100 newFollowers, there are no more followers left to fetch
+                    // TODO: handle empty state when one has no followers at all
+                    if newFollowers.count < 100 {
+                        hasMoreFollowers = false
+                        print("No more new followers to fetch!")
+                        return
+                    }
+                    // show the followers view
+                    showFollowersView = true
+                    // if the user has more followers increment the paging
+                    page += 1
                 } catch {
                     if let gfmError = error as? GFMError {
                         switch gfmError {
