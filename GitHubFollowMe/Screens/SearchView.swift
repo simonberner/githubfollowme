@@ -26,6 +26,7 @@ struct SearchView: View {
                     .padding(.top, 20)
                 Spacer()
                 GFMButton(title: "Get Followers") {
+                    resetFollowers()
                     viewModel.getFollowers()
                 }
                 .padding(.bottom, 60)
@@ -40,7 +41,15 @@ struct SearchView: View {
             }
         }
     }
+
+    private func resetFollowers() {
+        viewModel.hasMoreFollowers = true
+        viewModel.page = 1
+        viewModel.followers.removeAll()
+    }
 }
+
+
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {

@@ -16,8 +16,7 @@ import Foundation
     @Published var showFollowersView = false
     @Published var followers: [Follower] = []
     @Published var hasMoreFollowers = true
-
-    private var page = 1
+    @Published var page = 1
 
     func getFollowers() {
         if isValidUsername() {
@@ -26,6 +25,7 @@ import Foundation
                     // get the first/next 100 followers
                     let newFollowers = try await NetworkManager.shared.getFollowers(for: usernameInput, page: page)
                     followers.append(contentsOf: newFollowers)
+                    showFollowersView = true
                     print("New Followers count = \(newFollowers.count)")
                     print("Total Followers count = \(followers.count)")
                     print("Page count = \(page)")
@@ -38,8 +38,6 @@ import Foundation
                         print("No more new followers to fetch!")
                         return
                     }
-                    // show the followers view
-                    showFollowersView = true
                     // if the user has more followers increment the paging
                     page += 1
                 } catch {
@@ -62,6 +60,12 @@ import Foundation
                 }
             }
         }
+    }
+
+    func resetFollowers() {
+        followers.removeAll()
+        hasMoreFollowers = true
+        page = 1
     }
 
     private func isValidUsername() -> Bool {
