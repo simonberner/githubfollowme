@@ -17,8 +17,6 @@ struct FollowersView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(viewModel.usernameInput)
-                .font(.title2)
             HStack(spacing: 3) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
@@ -26,6 +24,8 @@ struct FollowersView: View {
                 TextField("Search for a username", text: $usernameSearch)
                     .disableAutocorrection(true)
             }
+            .navigationTitle(viewModel.usernameInput)
+            .navigationBarTitleDisplayMode(.inline)
             .frame(width: 300, height: 40)
             .background(Color(.systemGroupedBackground))
             .cornerRadius(10)
