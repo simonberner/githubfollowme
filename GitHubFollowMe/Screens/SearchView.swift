@@ -18,7 +18,6 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 NavigationLink("", destination: FollowersView(viewModel: viewModel), isActive: $viewModel.showFollowersView)
-                    .navigationTitle(viewModel.showFollowersView ? "Search" : "")
                 Image("gh-logo")
                     .resizable()
                     .frame(width: 240, height: 240)
@@ -26,7 +25,7 @@ struct SearchView: View {
                     .padding(.top, 20)
                 Spacer()
                 GFMButton(title: "Get Followers") {
-                    resetFollowers()
+                    viewModel.resetFollowers()
                     viewModel.getFollowers()
                 }
                 .padding(.bottom, 60)
@@ -41,15 +40,7 @@ struct SearchView: View {
             }
         }
     }
-
-    private func resetFollowers() {
-        viewModel.hasMoreFollowers = true
-        viewModel.page = 1
-        viewModel.followers.removeAll()
-    }
 }
-
-
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
