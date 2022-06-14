@@ -10,7 +10,8 @@ import SwiftUI
 struct FollowersView: View {
 
     @State private var usernameSearch = ""
-    @ObservedObject var viewModel: GFMViewModel // injected (not owned by this view) observed object
+//    @ObservedObject var viewModel: GFMViewModel // injected (not owned by this view) observed object
+    @EnvironmentObject var viewModel: GFMViewModel
 
     var columns: [GridItem] =
     Array(repeating: .init(.fixed(40), spacing: 80, alignment: .center), count: 3)
@@ -56,6 +57,6 @@ struct FollowersView: View {
 
  struct FollowersView_Previews: PreviewProvider {
     static var previews: some View {
-        FollowersView(viewModel: GFMViewModel())
+        FollowersView()
     }
  }

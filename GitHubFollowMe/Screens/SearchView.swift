@@ -17,7 +17,7 @@ struct SearchView: View {
         // iOS16: NavigationStack -> https://www.youtube.com/watch?v=4obxmYn2AoI
         NavigationView {
             VStack {
-                NavigationLink("", destination: FollowersView(viewModel: viewModel), isActive: $viewModel.showFollowersView)
+                NavigationLink("", destination: FollowersView(), isActive: $viewModel.showFollowersView)
                 Image("gh-logo")
                     .resizable()
                     .frame(width: 240, height: 240)
@@ -38,7 +38,8 @@ struct SearchView: View {
             } message: {
                 Text(viewModel.alertItem?.message ?? "")
             }
-        }
+        // attach the viewModel to the NavigationView so that it will be available in its child views (NavigationLink)
+        }.environmentObject(viewModel)
     }
 }
 
