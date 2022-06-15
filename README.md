@@ -61,6 +61,10 @@ The following things can/will impress, but are in most cases way beyond the scop
 - Testing: Unit-Tests? How well are the test activities documented? Real-Device Testing?
 - Is [Automatic Reference Counting](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) taken into account for instances of classes?
 (Structs an enums are value types!)
+- Is [premature optimization](https://stackify.com/premature-optimization-evil/) taken into account? (e.g. spending a huge amount of time for building super performant image caching)
+    - (Premature optimization is spending a lot of time on something that you may not actually need.)
+    - Validating user feedback needs to come first, before spending an enormous amount of time trying to figure out
+    how to scale when millions of users are using the App.
 - Is the project/codebase cleaned-up at the end of the development (before it was turned in)?
 - Are there any 3rd party libraries in use? If yes, what is the reason behind that?
 - After you have handed in your project, the interviewer might get back to you for a second part of the interview
@@ -79,6 +83,8 @@ and ask some specific questions about the work you have done. Here some example 
 - Show that you are able to look back with a critical eye at your code/solutions and improve things in the future
 - Tell that you are happy to learn from your team mates, having discussions, reviews and that you consider feedback as learning opportunities
 - I know that you know that one: Learning, Learning, Learning is key
+- Premature Optimization: show in your commit history, that you are not striving right from the beginning to write the most clean, perfect, refactored code too soon before
+you even have your functionalities working.
 
 ## Screens 📺
 ![Search](gfm-white.png)
@@ -176,6 +182,8 @@ from the GitHub API.
 - [AsyncImage. Loading images in SwiftUI](https://www.artemnovichkov.com/blog/async-image)
 - AsyncImage uses URLCache underneath
 - [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
+### GitHub
+- [GitHub Flavored Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
 
 ## Unit-Tests 🧪
 - [Unit testing: the pragmatic guide on where to start](https://hybridcattt.com/blog/start-testing-pragmatic-guide/)
@@ -184,6 +192,7 @@ from the GitHub API.
 - [List followers of a user](https://docs.github.com/en/rest/users/followers#list-followers-of-a-user)
 
 ## Worklog 🏗
+### Get it working
 - Create screens and views
 - Add the view model (MVVM)
 - Validate username input by adding a regex 
@@ -192,13 +201,18 @@ from the GitHub API.
 - Implement the LazyVGrid
 - Add AsyncImage for avatar loading (not sure what URLCache actually caches? The URL or the image itself?)
 - Pagination in the viewModel and infinite Scrolling in the View
+- Fix NavigationView Title with Search and username
+- Attach the viewModel as @EnvironmentObject instead of injecting it (and then wrap it @ObservedObject)
+- Empty State (when someone has no followers)
+### Refactor
+- tbd...
 
 ## Potential improvements 💡
 ### Explore new/other solutions
 - Try [Nuke](https://github.com/kean/Nuke) for Image Loading instead of AsyncImage
 ### Improvements
 - How can images be cached when using AsyncImage?
-- Add propper logging (OSLog)
+- Add proper logging (OSLog)
 
 ## Junior, Middle, Senior, Expert, Lead, Architect? 🧢
 In our industry, we very often categorise/put ourself and others in experience levels. Sometimes this can be good as reference
