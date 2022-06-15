@@ -31,6 +31,9 @@ struct FollowersView: View {
             .background(Color(.systemGroupedBackground))
             .cornerRadius(10)
             ScrollView(.vertical) {
+                if viewModel.followers.count == 0 { // can be tested with user: hkforever
+                    GFMEmtpyFollowerView()
+                }
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.followers) { follower in
                         FollowerCell(username: follower.login, avatarUrl: follower.avatarUrl)

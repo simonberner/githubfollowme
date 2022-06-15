@@ -32,7 +32,6 @@ import Foundation
                     print("New followers: \(newFollowers)")
 
                     // if the user has less than 100 newFollowers, there are no more followers left to fetch
-                    // TODO: handle empty state when one has no followers at all
                     if newFollowers.count < 100 {
                         hasMoreFollowers = false
                         print("No more new followers to fetch!")
