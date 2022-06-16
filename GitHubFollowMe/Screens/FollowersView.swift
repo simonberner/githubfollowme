@@ -17,40 +17,42 @@ struct FollowersView: View {
     Array(repeating: .init(.fixed(40), spacing: 80, alignment: .center), count: 3)
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(spacing: 3) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
-                    .padding(.leading, 4)
-                TextField("Search for a username", text: $usernameSearch)
-                    .disableAutocorrection(true)
-            }
-            .navigationTitle(viewModel.usernameInput)
-            .navigationBarTitleDisplayMode(.inline)
-            .frame(width: 300, height: 40)
-            .background(Color(.systemGroupedBackground))
-            .cornerRadius(10)
-            ScrollView(.vertical) {
-                if viewModel.followers.count == 0 { // can be tested with user: hkforever
-                    GFMEmtpyFollowerView()
+        if viewModel.followers.isEmpty { // can be tested with user: hkforever
+            GFMEmtpyFollowerView()
+        } else {
+            VStack(alignment: .leading) {
+                HStack(spacing: 3) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .padding(.leading, 4)
+                    TextField("Search for a username", text: $usernameSearch)
+                        .disableAutocorrection(true)
                 }
-                LazyVGrid(columns: columns) {
-                    ForEach(viewModel.followers) { follower in
-                        FollowerCell(username: follower.login, avatarUrl: follower.avatarUrl)
-                    }
-                    .onTapGesture {
-                        print("TODO: show detail view")
-                    }
-                    if viewModel.hasMoreFollowers {
-                        ProgressView()
-                            .onAppear {
-                                viewModel.getFollowers()
-                            }
+                .navigationTitle(viewModel.usernameInput)
+                .navigationBarTitleDisplayMode(.inline)
+                .frame(width: 300, height: 40)
+                .background(Color(.systemGroupedBackground))
+                .cornerRadius(10)
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns) {
+                        ForEach(viewModel.followers) { follower in
+                            FollowerCell(username: follower.login, avatarUrl: follower.avatarUrl)
+                        }
+                        .onTapGesture {
+                            print("TODO: show detail view")
+                        }
+                        if viewModel.hasMoreFollowers {
+                            ProgressView()
+                                .onAppear {
+                                    viewModel.getFollowers()
+                                }
+                        }
                     }
                 }
             }
+            .padding()
         }
-        .padding()
+
         // Place plus button top right
 //        .overlay(alignment: .topTrailing) {
 //            GFMDismissButton()
