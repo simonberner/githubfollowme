@@ -15,8 +15,11 @@ import Foundation
     @Published var showAlert = false
     @Published var showFollowersView = false
     @Published var followers: [Follower] = []
+    @Published var followersSnapshot: [Follower] = []
+    @Published var filteredFollowers: [Follower] = []
     @Published var hasMoreFollowers = true
     @Published var page = 1
+    @Published var pageSnapshot = 1
 
     func getFollowers() {
         if isValidUsername() {
@@ -63,8 +66,14 @@ import Foundation
 
     func resetFollowers() {
         followers.removeAll()
+        followers = followersSnapshot
+        followersSnapshot.removeAll()
+        filteredFollowers.removeAll()
+        // TODO: handle which followers have we already fetched?
+//        followers = followersSnapshot
+//        filteredFollowers = followersSnapshot
         hasMoreFollowers = true
-        page = 1
+        page = pageSnapshot
     }
 
     private func isValidUsername() -> Bool {
