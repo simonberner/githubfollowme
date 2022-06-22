@@ -64,16 +64,21 @@ import Foundation
         }
     }
 
-    func resetFollowers() {
+    func resetFollowersToSnapshot() {
         followers.removeAll()
         followers = followersSnapshot
         followersSnapshot.removeAll()
         filteredFollowers.removeAll()
-        // TODO: handle which followers have we already fetched?
-//        followers = followersSnapshot
-//        filteredFollowers = followersSnapshot
         hasMoreFollowers = true
         page = pageSnapshot
+    }
+
+    func flushFollowers() {
+        followers.removeAll()
+        followersSnapshot.removeAll()
+        filteredFollowers.removeAll()
+        hasMoreFollowers = true
+        page = 1
     }
 
     private func isValidUsername() -> Bool {

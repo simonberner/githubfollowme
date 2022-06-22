@@ -25,7 +25,7 @@ struct SearchView: View {
                     .padding(.top, 20)
                 Spacer()
                 GFMButton(title: "Get Followers") {
-                    viewModel.resetFollowers()
+                    viewModel.flushFollowers()
                     viewModel.getFollowers()
                 }
                 .padding(.bottom, 60)

@@ -62,7 +62,7 @@ struct FollowersView: View {
                 } else {
                     // empty or cancel
                     // reset the followers to the state before filtering
-                    viewModel.resetFollowers()
+                    viewModel.resetFollowersToSnapshot()
                 }
             })
             .padding()
