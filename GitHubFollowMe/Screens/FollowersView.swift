@@ -9,15 +9,8 @@ import SwiftUI
 
 struct FollowersView: View {
 
-    @State private var usernameSearch = ""
-//    @State private var searchFollowers = viewModel.followers
 //    @ObservedObject var viewModel: GFMViewModel // injected (not owned by this view) observed object
     @EnvironmentObject var viewModel: GFMViewModel
-//    @State private var filterFollowers: [Follower] = []
-
-//    init() {
-//        followersSnapshot2 = viewModel.followers
-//    }
 
     var columns: [GridItem] =
     Array(repeating: .init(.fixed(40), spacing: 80, alignment: .center), count: 3)
@@ -44,9 +37,9 @@ struct FollowersView: View {
                     }
                 }
             }
-            .searchable(text: $usernameSearch, prompt: Text("Search for a username"))
+            .searchable(text: $viewModel.usernameSearch, prompt: Text("Search for a username"))
             .autocapitalization(.none)
-            .onChange(of: usernameSearch, perform: { searchText in
+            .onChange(of: viewModel.usernameSearch, perform: { searchText in
                 if !searchText.isEmpty {
                     // on the very first change on an empty usernameSearch:
                     // take a snapshot of the current followers + page for the reset

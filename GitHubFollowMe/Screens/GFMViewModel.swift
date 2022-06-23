@@ -11,6 +11,7 @@ import Foundation
 @MainActor final class GFMViewModel: ObservableObject {
 
     @Published var usernameInput = ""
+    @Published var usernameSearch = ""
     @Published var alertItem: AlertItem?
     @Published var showAlert = false
     @Published var showFollowersView = false
@@ -73,6 +74,7 @@ import Foundation
         page = pageSnapshot
     }
 
+    /// Flush the flag, all the follower arrays and reset the pages
     func flushFollowers() {
         followers.removeAll()
         followersSnapshot.removeAll()
