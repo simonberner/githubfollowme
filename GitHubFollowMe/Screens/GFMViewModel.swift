@@ -64,12 +64,12 @@ import Foundation
         }
     }
 
+    /// When the search is deleted or cancelled, the followers are reset to the snapshot from before
     func resetFollowersToSnapshot() {
         followers.removeAll()
         followers = followersSnapshot
         followersSnapshot.removeAll()
         filteredFollowers.removeAll()
-        hasMoreFollowers = true
         page = pageSnapshot
     }
 
@@ -78,6 +78,7 @@ import Foundation
         followersSnapshot.removeAll()
         filteredFollowers.removeAll()
         hasMoreFollowers = true
+        pageSnapshot = 1
         page = 1
     }
 
