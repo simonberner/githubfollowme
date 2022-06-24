@@ -33,7 +33,7 @@ This App runs on an iPhone with iOS 15+
 - Retrieve the data and parse the JSON (e.g. from a GraphQL query)
 - Display the data in a pretty UI
 - Apply some design patterns
-- Adding some Unit-Tests
+- Add some Unit-Tests
 - Write a great README (like this one here 😁)
 
 ### Beyond the scope 🌅
@@ -102,6 +102,9 @@ from the GitHub API.
 - [Never use a hyphen where an 'en dash' or an 'em dash' is required.](https://www.thepunctuationguide.com/hyphen.html)
 - [en dash is slightly wider than the hyphen](https://www.thepunctuationguide.com/en-dash.html)
 - [Do not mistake the em dash (—) for the slightly narrower en dash (–) or the even narrower hyphen (-)](https://www.thepunctuationguide.com/em-dash.html)
+### Swift
+- [Type erasure](https://www.donnywals.com/understanding-type-erasure-in-swift/) enables us to hide implementation details in our code.
+- [Type Erased Async Sequences in Swift](https://iosexample.com/type-erased-async-sequences-in-swift/)
 ### SwiftUI
 - [GeometryReader?](https://swiftwithmajid.com/2020/11/04/how-to-use-geometryreader-without-breaking-swiftui-layout/)
     - Lets you calculate the device screensize
@@ -112,6 +115,7 @@ from the GitHub API.
 - Caution: The order of the applied view modifiers matters, because each of them returns a new view!
 - [@StateObject vs @ObservedObject])(https://www.avanderlee.com/swiftui/stateobject-observedobject-differences/)
     - Use the state object property wrapper to ensure consistent results when the current view creates the observed object. Whenever you inject an observed object as dependency, you can use the @ObservedObject.
+- [SwiftUI Search: Getting Started](https://www.raywenderlich.com/26924502-swiftui-search-getting-started)
 ### Regular Expressions
 - [Create and Test regex](https://regexr.com/)
 - [Regular Expression in Swift](https://www.advancedswift.com/regular-expressions/)
@@ -192,7 +196,8 @@ from the GitHub API.
 - [List followers of a user](https://docs.github.com/en/rest/users/followers#list-followers-of-a-user)
 
 ## Worklog 🏗
-### Get it working
+This worklog describes in chronological order, what I have been working on:
+### Get things working
 - Create screens and views
 - Add the view model (MVVM)
 - Validate username input by adding a regex 
@@ -204,7 +209,8 @@ from the GitHub API.
 - Fix NavigationView Title with Search and username
 - Attach the viewModel as @EnvironmentObject instead of injecting it (and then wrap it @ObservedObject)
 - Empty State (when someone has no followers)
-### Refactor
+- Search Bar: make the FollowerView [searchable](https://medium.com/geekculture/swiftui-tutorial-searchable-d71b42ab0e2f)
+### Reflect, Rethink, Refactor
 - tbd...
 
 ## Potential improvements 💡
@@ -212,7 +218,8 @@ from the GitHub API.
 - Try [Nuke](https://github.com/kean/Nuke) for Image Loading instead of AsyncImage
 ### Improvements
 - How can images be cached when using AsyncImage?
-- Add proper logging (OSLog)
+- Add [Pulse](https://kean.blog/pulse/guides/overview) for proper logging/debugging
+- Logging with OSLog
 
 ## Junior, Middle, Senior, Expert, Lead, Architect? 🧢
 In our industry, we very often categorise/put ourself and others in experience levels. Sometimes this can be good as reference
