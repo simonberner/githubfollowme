@@ -65,7 +65,7 @@ import Foundation
         }
     }
 
-    /// When the search is deleted or cancelled, the followers are reset to the snapshot from before
+    /// When the search is deleted or cancelled, the followers are reset to the snapshot from before filtering
     func resetFollowersToSnapshot() {
         followers.removeAll()
         followers = followersSnapshot

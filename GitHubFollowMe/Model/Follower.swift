@@ -12,6 +12,14 @@ struct Follower: Codable, Identifiable {
     // Not optional as they will exist in every GitHub profile
     var login: String
     var avatarUrl: String
+
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//    }
+//
+//    static func == (lhs: Follower, rhs: Follower) -> Bool {
+//        return lhs.id == rhs.id
+//    }
 }
 
 struct MockData {

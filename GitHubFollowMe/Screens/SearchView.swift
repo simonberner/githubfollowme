@@ -18,6 +18,7 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 NavigationLink("", destination: FollowersView(), isActive: $viewModel.showFollowersView)
+//                    .navigationTitle(viewModel.showFollowersView ? "Search" : "")
                 Image("gh-logo")
                     .resizable()
                     .frame(width: 240, height: 240)

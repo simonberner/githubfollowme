@@ -12,7 +12,7 @@ struct AvatarImageView: View {
     var imageWidth: CGFloat
     var imageHeight: CGFloat
 
-    private let transaction: Transaction = .init(animation: .linear)
+    private let transaction: Transaction = .init(animation: .linear) // Use a transaction to pass an animation between views in a view hierarchy.
 
     var body: some View {
         VStack {
