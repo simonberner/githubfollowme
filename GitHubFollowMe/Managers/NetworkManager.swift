@@ -11,6 +11,7 @@ final class NetworkManager {
     // singleton
     static let shared = NetworkManager()
     private let baseURL = "https://api.github.com/users/"
+    private let httpOk = 200
 
     private init() {
         configureAsyncImageUrlCache()
@@ -36,7 +37,7 @@ final class NetworkManager {
             // handle the error case GFMError.offline
             let (data, urlResponse) = try await URLSession.shared.data(from: url)
 
-            guard let response = urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
+            guard let response = urlResponse as? HTTPURLResponse, response.statusCode == httpOk else {
                 throw GFMError.invalidResponse
             }
 
@@ -51,6 +52,36 @@ final class NetworkManager {
 //            throw GFMError.offline
 //        }
 
+    }
+
+
+    /// Get a specific GitHub user profile
+    /// - Parameter username: GitHub username
+    /// - Returns: a single User object
+    func getUser(for username: String) async throws -> User {
+        let userEndpoint = baseURL + "\(username)"
+
+        // check if url is valid
+        guard let url = URL(string: userEndpoint) else {
+            throw GFMError.invalidURL
+        }
+
+        // retrieve the response tuple
+        let (data, urlResponse) = try await URLSession.shared.data(from: url)
+
+        // check if http response is OK
+        guard let response = urlResponse as? HTTPURLResponse, response.statusCode == httpOk else {
+            throw GFMError.invalidResponse
+        }
+
+        // decode the JSON data to a User object
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode(User.self, from: data)
+        } catch {
+            throw GFMError.invalidData
+        }
     }
 
     private func configureAsyncImageUrlCache() {
