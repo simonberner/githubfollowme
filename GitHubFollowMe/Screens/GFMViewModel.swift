@@ -21,6 +21,8 @@ import Foundation
     @Published var hasMoreFollowers = true
     @Published var page = 1
     @Published var pageSnapshot = 1
+    @Published var selectedUser: User?
+    @Published var isShowingUserDetailView = false
 
     func getFollowers() {
         if isValidUsername() {
@@ -61,6 +63,32 @@ import Foundation
                         }
                     }
                 }
+            }
+        }
+    }
+
+    func getUser(for username: String) {
+        Task {
+            do {
+                selectedUser = try await NetworkManager.shared.getUser(for: username)
+            } catch {
+                if let gfmError = error as? GFMError {
+                    switch gfmError {
+                    case .invalidURL:
+                            alertItem = AlertContext.invalidURL
+                            showAlert = true
+                    case .invalidResponse:
+                            alertItem = AlertContext.invalidResponse
+                            showAlert = true
+                    case .invalidData:
+                            alertItem = AlertContext.invalidData
+                            showAlert = true
+                    case .offline:
+                            alertItem = AlertContext.offline
+                            showAlert = true
+                    }
+                }
+
             }
         }
     }
