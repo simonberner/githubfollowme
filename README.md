@@ -85,6 +85,7 @@ and ask some specific questions about the work you have done. Here some example 
 - I know that you know that one: Learning, Learning, Learning is key
 - Premature Optimization: show in your commit history, that you are not striving right from the beginning to write the most clean, perfect, refactored code too soon before
 you even have your functionalities working.
+- Knowing what is going on in the code you write, is key.
 
 ## Screens 📺
 ![Search](gfm-white.png)
@@ -105,6 +106,7 @@ from the GitHub API.
 ### Swift
 - [Type erasure](https://www.donnywals.com/understanding-type-erasure-in-swift/) enables us to hide implementation details in our code.
 - [Type Erased Async Sequences in Swift](https://iosexample.com/type-erased-async-sequences-in-swift/)
+- Ternary operator can easily remembered as: W ? T : F (What ? True : False)
 ### SwiftUI
 - [GeometryReader?](https://swiftwithmajid.com/2020/11/04/how-to-use-geometryreader-without-breaking-swiftui-layout/)
     - Lets you calculate the device screensize
@@ -164,7 +166,8 @@ from the GitHub API.
 - [The Art of Commenting in Swift](https://www.vadimbulavin.com/the-art-of-commenting-in-swift/)
 ### Async await
 - [Available from Swift 5.5](https://www.hackingwithswift.com/swift/5.5/async-await)
-### UICollectionViewDiffableDataSource (iOS13+ - UIKit)
+- Before Async await: @escaping closures outlive the life of a func (because they have to wait for certain async code)
+### UIKit - UICollectionViewDiffableDataSource (iOS13+)
 - Is a new way to handle data for CollectionViews
 - Takes a snapshot of your data before you make any changes
 - When you then make new changes, it takes another snapshot and does all the diffable magic in the background and animation
@@ -187,7 +190,9 @@ from the GitHub API.
 - AsyncImage uses URLCache underneath
 - [Downloading and Caching images in SwiftUI](https://www.avanderlee.com/swiftui/downloading-caching-images/)
 ### GitHub
-- [GitHub Flavored Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
+- [GitHub Flavoured Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
+### Design
+- [Modality](https://developer.apple.com/design/human-interface-guidelines/patterns/modality/)
 
 ## Unit-Tests 🧪
 - [Unit testing: the pragmatic guide on where to start](https://hybridcattt.com/blog/start-testing-pragmatic-guide/)
