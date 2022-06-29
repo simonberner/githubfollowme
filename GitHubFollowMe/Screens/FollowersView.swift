@@ -24,10 +24,12 @@ struct FollowersView: View {
                     LazyVGrid(columns: columns) {
                         ForEach(viewModel.followers) { follower in
                             FollowerCell(username: follower.login, avatarUrl: follower.avatarUrl)
+                                .onTapGesture {
+                                    viewModel.getUser(for: follower.login)
+                                    viewModel.isShowingUserDetailView = true
+                                }
                         }
-                        .onTapGesture {
-                            print("TODO: show detail view")
-                        }
+
                         if viewModel.hasMoreFollowers {
                             ProgressView()
                                 .onAppear {
@@ -35,6 +37,16 @@ struct FollowersView: View {
                                 }
                         }
                     }
+                }
+//                .disabled(viewModel.isShowingUserDetailView)
+                .blur(radius: viewModel.isShowingUserDetailView ? 20 : 0)
+//                .sheet(isPresented: $viewModel.isShowingFollowerDetailView) {
+//                    // onDismiss
+//                } content: {
+//                    // show FollowerDetailView
+//                }
+                .popover(isPresented: $viewModel.isShowingUserDetailView) {
+                    UserDetailView()
                 }
             }
             .searchable(text: $viewModel.usernameSearch, prompt: Text("Search for a username"))
