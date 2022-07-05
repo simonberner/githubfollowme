@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GFMTabView: View {
+    
+    @StateObject var viewModel = GFMViewModel()
+
     var body: some View {
         TabView {
             SearchView()
@@ -15,6 +18,7 @@ struct GFMTabView: View {
             FavoritesView()
                 .tabItem { Label("Favorites", systemImage: "star") }
         }
+        .environmentObject(viewModel)
         .tint(.green)
     }
 }
