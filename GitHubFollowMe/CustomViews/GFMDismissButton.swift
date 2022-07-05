@@ -14,8 +14,8 @@ struct GFMDismissButton: View {
         Button {
             dismiss()
         } label: {
-            Image(systemName: "xmark.circle.fill")
-                .foregroundColor(.gray)
+            Image(systemName: "xmark.circle")
+                .foregroundColor(.secondary)
                 .imageScale(.large)
         }
     }
@@ -24,5 +24,7 @@ struct GFMDismissButton: View {
 struct GFMDismissButton_Previews: PreviewProvider {
     static var previews: some View {
         GFMDismissButton()
+        GFMDismissButton()
+            .environment(\.colorScheme, .dark)
     }
 }
