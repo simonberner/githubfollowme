@@ -16,15 +16,15 @@ struct UserDetailView: View {
         VStack(spacing: 14) {
             VStack(alignment: .leading) {
                 HStack {
-                    AvatarImageView(imageURL: URL(string: UserMockData.mockUser.avatarUrl), imageWidth: 86, imageHeight: 86)
+                    AvatarImageView(imageURL: URL(string: viewModel.selectedUser?.avatarUrl ?? ""), imageWidth: 86, imageHeight: 86)
                     VStack(alignment: .leading, spacing: 3) {
-                        Text(UserMockData.mockUser.login)
+                        Text(viewModel.selectedUser?.login ?? "noLoginName")
                             .bold()
                             .font(.title)
-                        Text(UserMockData.mockUser.name ?? "")
+                        Text(viewModel.selectedUser?.name ?? "")
                             .foregroundColor(.secondary)
                         Label {
-                            Text(UserMockData.mockUser.location ?? "")
+                            Text(viewModel.selectedUser?.location ?? "")
                         } icon: {
                             Image(systemName: "mappin.and.ellipse")
                         }
@@ -32,18 +32,18 @@ struct UserDetailView: View {
                     }
                 }
 
-                Text(UserMockData.mockUser.bio ?? "")
+                Text(viewModel.selectedUser?.bio ?? "")
                     .font(.caption)
                     .lineLimit(3)
                     .foregroundColor(.secondary)
             }
             .padding(.top, 40)
 
-            GFMInfoView(label1: "Public Repos", label2: "Public Gists", imageSymbol1: "folder", imageSymbol2: "text.alignleft", number1: UserMockData.mockUser.publicRepos, number2: UserMockData.mockUser.publicGists, buttonLabel: "GitHub Profile", buttonColor: .pink)
+            GFMInfoView(label1: "Public Repos", label2: "Public Gists", imageSymbol1: "folder", imageSymbol2: "text.alignleft", number1: viewModel.selectedUser?.publicRepos ?? 0, number2: viewModel.selectedUser?.publicGists ?? 0, buttonLabel: "GitHub Profile", buttonColor: .pink)
 
-            GFMInfoView(label1: "Following", label2: "Followers", imageSymbol1: "heart", imageSymbol2: "person.3", number1: UserMockData.mockUser.publicRepos, number2: UserMockData.mockUser.publicGists, buttonLabel: "Get Followers", buttonColor: .green)
+            GFMInfoView(label1: "Following", label2: "Followers", imageSymbol1: "heart", imageSymbol2: "person.3", number1: viewModel.selectedUser?.following ?? 0, number2: viewModel.selectedUser?.followers ?? 0, buttonLabel: "Get Followers", buttonColor: .green)
 
-                Text("On GitHub since \(UserMockData.mockUser.createdAt)")
+                Text("On GitHub since \(viewModel.selectedUser?.createdAt ?? "")")
                     .foregroundColor(.secondary)
                     .font(.subheadline)
 
@@ -63,5 +63,8 @@ struct UserDetailView: View {
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
         UserDetailView()
+        UserDetailView()
+            .environment(\.colorScheme, .dark)
+
     }
 }
