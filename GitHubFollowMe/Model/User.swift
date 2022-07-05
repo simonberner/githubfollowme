@@ -23,3 +23,7 @@ struct User: Codable {
     let followers: Int
     let createdAt: String
 }
+
+struct UserMockData {
+    static let mockUser = User(login: "mockUser", avatarUrl: "", name: "Mock Username", location: "World", bio: "I am the best! I am the best! I am the best! I am the best! I am the best! I am the best! 😁", publicRepos: 1, publicGists: 1, htmlUrl: "", following: 10, followers: 500, createdAt: "Jul 2014")
+}

@@ -22,7 +22,7 @@ struct Follower: Codable, Identifiable {
 //    }
 }
 
-struct MockData {
+struct FollowerMockData {
     static let sampleFollower1 = Follower(id: 1, login: "user1", avatarUrl: "")
     static let sampleFollower2 = Follower(id: 2, login: "user2", avatarUrl: "")
     static let sampleFollower3 = Follower(id: 3, login: "user3", avatarUrl: "")
