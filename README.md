@@ -14,6 +14,14 @@ This is my latest (Spring/Summer 2022) portfolio App and also an example how a T
     </a>
 </p>
 
+---
+
+* [Tech Stack](#tech-stack)
+* [Device Requirements](#device-requirements)
+* [Common Take-Me-Home Project Tasks](#common-take-me-home-project-tasks)
+
+---
+
 ## Tech Stack 🕹
 - Swift 5.6.1
 - [SwiftUI](https://developer.apple.com/documentation/swiftui) for iOS15+
@@ -118,6 +126,8 @@ from the GitHub API.
 - [@StateObject vs @ObservedObject])(https://www.avanderlee.com/swiftui/stateobject-observedobject-differences/)
     - Use the state object property wrapper to ensure consistent results when the current view creates the observed object. Whenever you inject an observed object as dependency, you can use the @ObservedObject.
 - [SwiftUI Search: Getting Started](https://www.raywenderlich.com/26924502-swiftui-search-getting-started)
+- [EnvironmentObject](https://www.avanderlee.com/swiftui/environmentobject/#do-i-need-to-forward-environment-objects)
+- [Why You Shouldn’t Use @EnvironmentObject in SwiftUI](https://betterprogramming.pub/why-you-shouldnt-use-environmentobject-in-swiftui-a527d5c2bd)
 ### Regular Expressions
 - [Create and Test regex](https://regexr.com/)
 - [Regular Expression in Swift](https://www.advancedswift.com/regular-expressions/)
@@ -144,7 +154,8 @@ from the GitHub API.
         - Convenient to have just one single global thing to share (e.g. NetworkManager, SessionManager)
         - Cons because everyone can access (and maybe change it)!
     - MVVM, MVC, VIPER
-    - [Composable Architecture](https://dzone.com/articles/composable-architecture?edition=731522)
+    - [TCA - The Composable Architecture](https://dzone.com/articles/composable-architecture?edition=731522)
+    - [Reinventing MVC for SwiftUI with Boutique](https://build.ms/2022/06/22/model-view-controller-store/)
     - Coordinator Pattern
     - TCA
     - Elm?
