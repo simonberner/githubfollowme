@@ -13,9 +13,13 @@ extension DateFormatter {
     static var gitHubSinceDateFormatter: DateFormatter {
         // implicit get {}
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-//        dateFormatter.dateFormat = "MM-yyyy"
         dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        // set the format of the to be altered date
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+//        dateFormatter.dateFormat = "yyyy-MM-ddTHH:mm:ssZ"
+        dateFormatter.locale = Locale(identifier: "en_US")
+
         return dateFormatter
     }
 }
