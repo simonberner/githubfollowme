@@ -26,4 +26,13 @@ extension String {
         let usernamePredicate = NSPredicate(format: "SELF MATCHES %@", usernameFormat)
         return usernamePredicate.evaluate(with: self)
     }
+
+    /// Formats the GitHub profile 'createdAt' date string
+    /// - Returns: abbreviated local date string with day, month and year
+    func formatDate() -> String {
+        let expectedFormat = Date.ISO8601FormatStyle()
+        let date = try? Date(self, strategy: expectedFormat)
+        let formattedDate = date?.formatted(date: .abbreviated, time: .omitted) ?? "nil"
+        return formattedDate
+    }
 }
