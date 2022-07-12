@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct GFMTabView: View {
-    
-    @StateObject var viewModel = GFMViewModel()
+
+    @StateObject var viewModel = GFMViewModel() // object is owned by this view (GFMTabView)
 
     var body: some View {
         TabView {

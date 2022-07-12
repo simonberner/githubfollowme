@@ -54,7 +54,6 @@ final class NetworkManager {
 
     }
 
-
     /// Get a specific GitHub user profile
     /// - Parameter username: GitHub username
     /// - Returns: a single User object
