@@ -25,5 +25,5 @@ struct User: Codable {
 }
 
 struct UserMockData {
-    static let mockUser = User(login: "mockUser", avatarUrl: "", name: "Mock Username", location: "World", bio: "I am the best! I am the best! I am the best! I am the best! I am the best! I am the best! 😁", publicRepos: 1, publicGists: 1, htmlUrl: "", following: 10, followers: 500, createdAt: "Jul 2014")
+    static let mockUser = User(login: "mockUser", avatarUrl: "", name: "Mock Username", location: "World", bio: "I am the best! I am the best! I am the best! I am the best! I am the best! I am the best! 😁", publicRepos: 1, publicGists: 1, htmlUrl: "", following: 10, followers: 500, createdAt: "2008-02-21T17:14:06Z")
 }
