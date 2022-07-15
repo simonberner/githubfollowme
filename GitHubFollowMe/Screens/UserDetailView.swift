@@ -43,7 +43,7 @@ struct UserDetailView: View {
 
             GFMInfoView(label1: "Following", label2: "Followers", imageSymbol1: "heart", imageSymbol2: "person.3", number1: viewModel.selectedUser?.following ?? 0, number2: viewModel.selectedUser?.followers ?? 0, buttonLabel: "Get Followers", buttonColor: .green)
 
-            Text("On GitHub since \(viewModel.selectedUser?.createdAt ?? "")")
+            Text("On GitHub since \(viewModel.selectedUser?.createdAt.formatDate() ?? "")")
                     .foregroundColor(.secondary)
                     .font(.subheadline)
 

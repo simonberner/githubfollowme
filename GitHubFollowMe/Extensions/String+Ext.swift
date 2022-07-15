@@ -32,7 +32,13 @@ extension String {
     func formatDate() -> String {
         let expectedFormat = Date.ISO8601FormatStyle()
         let date = try? Date(self, strategy: expectedFormat)
-        let formattedDate = date?.formatted(date: .abbreviated, time: .omitted) ?? "nil"
+//        let formattedDate = date?.formatted(date: .abbreviated, time: .omitted) ?? "nil"
+        // or in a more customised way:
+        let formattedDate = date?.formatted(.dateTime
+            .year()
+            .month(.abbreviated)
+            .day()
+            .locale(Locale(identifier: "en_US"))) ?? "nil"
         return formattedDate
     }
 }
