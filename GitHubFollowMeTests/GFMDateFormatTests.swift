@@ -22,7 +22,7 @@ class GFMDateFormatTests: XCTestCase {
         let createAtDate = "2022-07-07T12:00:00Z" // Z: Zulu time zone is UTC +0 -> Jul 7, 2022
         let formattedDate = createAtDate.formatDate()
         print("formattedDate: \(formattedDate)")
-        XCTAssertTrue(formattedDate == "7. Juli 2022")
+        XCTAssertTrue(formattedDate == "Jul 7, 2022")
     }
 
     func testPerformanceExample() throws {
