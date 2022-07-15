@@ -28,7 +28,7 @@ extension String {
     }
 
     /// Formats the GitHub profile 'createdAt' date string
-    /// - Returns: abbreviated local date string with day, month and year
+    /// - Returns: abbreviated en_US date string with month, day and year
     func formatDate() -> String {
         let expectedFormat = Date.ISO8601FormatStyle()
         let date = try? Date(self, strategy: expectedFormat)
