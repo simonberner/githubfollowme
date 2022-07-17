@@ -115,6 +115,9 @@ from the GitHub API.
 - [Type erasure](https://www.donnywals.com/understanding-type-erasure-in-swift/) enables us to hide implementation details in our code.
 - [Type Erased Async Sequences in Swift](https://iosexample.com/type-erased-async-sequences-in-swift/)
 - Ternary operator can easily remembered as: W ? T : F (What ? True : False)
+- [Computed Properties vs Methods](https://www.avanderlee.com/swift/computed-property/#computed-properties-vs-methods-in-swift-when-to-use-which)
+- [Dates: Formatter API replaces the DateFormatter from iOS15 onwards](https://www.donnywals.com/formatting-dates-in-swift-using-date-formatstyle-on-ios-15/)
+- [Dates: New Way to Format Dates in Swift (5.5)](https://www.youtube.com/watch?v=5I1ghMpU4rs)
 ### SwiftUI
 - [GeometryReader?](https://swiftwithmajid.com/2020/11/04/how-to-use-geometryreader-without-breaking-swiftui-layout/)
     - Lets you calculate the device screensize
