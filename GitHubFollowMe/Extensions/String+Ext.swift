@@ -27,6 +27,12 @@ extension String {
         return usernamePredicate.evaluate(with: self)
     }
 
+    /// Returns the display format of the 'createdAt' date string
+    var displayFormat: String {
+        guard let date = self.convertToDate() else { return "N/A" }
+        return date.convertToMonthDayYear()
+    }
+
     /// Formats the GitHub profile 'createdAt' date string
     /// - Returns: abbreviated en_US date string with month, day and year
     func formatDate() -> String {
@@ -40,5 +46,11 @@ extension String {
             .day()
             .locale(Locale(identifier: "en_US"))) ?? "nil"
         return formattedDate
+    }
+
+    /// Converts an ISO date String into an Date object
+    func convertToDate() -> Date? {
+        let formatStyle = Date.ISO8601FormatStyle()
+        return try? Date(self, strategy: formatStyle)
     }
 }
